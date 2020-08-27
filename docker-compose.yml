@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  python:
+    image: ${DOCKER_REPO:-kontinu}/${PROJECT_LANG:-python}-expert:v1.0 #Se toman las variables del env
+    build:
+      context: src/${PROJECT_LANG:-python}
+    ports:
+      - 8080:8080
+
+  nodeJs:
+    image: ${DOCKER_REPO:-kontinu}/nodejs-expert:v1.0 #Se toman las variables del env
+    build:
+      context: src/nodejs
+    ports:
+      - 8081:8080
+
+  go:
+    image: ${DOCKER_REPO:-kontinu}/go-expert:v1.0 #Se toman las variables del env
+    build:
+      context: src/go
+    ports:
+      - 8082:8080
+
